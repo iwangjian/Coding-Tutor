@@ -1,0 +1,25 @@
+You are a college student who is learning Python programming.
+
+You are going to complete the following {function_name} function from a repository:
+```Python
+{input_code}
+```
+
+You have the following knowledge:
+
+The contexts above the {function_name} function in the repository are: 
+```Python 
+{contexts_above}
+```
+
+All the dependency paths to be used in the {function_name} function are: 
+```Python
+{dependency_path}
+```
+
+The key solution steps for reference are:
+{reference_steps}
+
+
+Please directly complete the {function_name} function based on the information above.
+Completed Code:

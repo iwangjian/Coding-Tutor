@@ -1,0 +1,21 @@
+Target coding task:
+```Python
+{input_code}
+```
+
+
+Reference Knowledge:
+
+- The dependency paths for the {function_name} function: 
+{dependency_path}
+
+- The reference key solution steps:
+{reference_steps}
+
+
+Conversation context:
+{conversation}
+
+
+Response:
+{response}

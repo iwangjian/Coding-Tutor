@@ -1,0 +1,23 @@
+You are a moderator for a tutoring-oriented dialogue. You will determine whether the discussion between a tutor and a student should come to an end.
+
+The tutor is guiding the student to complete the following {function_name} function from a repository:
+```Python
+{input_code}
+```
+
+The tutor has the following reference knowledge:
+
+- The contexts above the {function_name} function: 
+```Python
+{contexts_above}
+```
+
+- The dependency paths for the {function_name} function: 
+{dependency_path}
+
+- The reference key solution steps:
+{reference_steps}
+
+
+[Goal Description] The tutor's goal is to (1) infer the student's prior knowledge level via conversation, (2) proactively deliver the remaining knowledge needed by the student, and (3) lead the student towards completing the {function_name} function. 
+The tutor should accomplish the goal via a step-by-step communication, where each step may involve one of the following strategies: assess knowledge level, describe a dependency path, offer a solution step, explain concepts with code snippets, ask questions or follow-up questions, and provide feedback with elaborations or confirmations.
