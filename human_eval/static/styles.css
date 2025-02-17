@@ -1,0 +1,241 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 20px auto;
+  }
+  
+  .task-info {
+    background: #e8f5e9;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  .dialogues {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .dialogue-container {
+    width: 48%;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    height: 500px;
+    overflow-y: auto;
+  }
+  
+  .dialogue p {
+    margin: 5px 0;
+  }
+  
+  .dialogue p span {
+    font-weight: bold;
+  }
+  
+  .questions {
+    background: #f1f1f1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .question {
+    margin-bottom: 20px;
+  }
+  
+  .radio-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 10px;
+    padding: 0 20px;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  .dialogue-left {
+    background: #e3f2fd;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  
+  .dialogue-right {
+    background: #f3e5f5;
+    padding: 2px 5px;
+    border-radius: 3px;
+  }
+  
+  .justification {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .justification input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: fit-content;
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .speaker {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .text {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* 代码块样式 */
+  pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 0;
+    overflow: auto;
+  }
+  
+  code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 85%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 6px;
+  }
+  
+  pre code {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+  
+  /* 滚动条样式优化 */
+  .dialogue-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .dialogue-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .dialogue-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  .dialogue-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Markdown 内容样式 */
+  .markdown-body {
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+  }
+  
+  .markdown-body pre {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 8px;
+    margin: 0;
+    overflow: auto;
+  }
+  
+  .markdown-body code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 85%;
+    padding: 0;
+    margin: 0;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 6px;
+  }
+  
+  .markdown-body pre code {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    word-break: normal;
+    white-space: pre;
+    overflow: visible;
+  }
+  
+  .knowledge-body {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 13px;
+    padding: 20px;
+    margin: 0;
+    line-height: 1.5;
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+  }
+
+  /* 调整对话框样式 */
+  .dialogue-container {
+    width: 48%;
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    height: 500px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  .speaker {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }

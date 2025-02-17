@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="/static/script.js"></script>
+  <title>Human Evaluation</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Which Tutoring Agent is Better?</h1>
+    <p>You are currently at comparison <span id="current-index">{{ current_index }}</span> / {{ total_pairs }}</p>
+
+    <div class="progress-selector">
+      <label for="case-select">Jump to comparison:</label>
+      <select id="case-select">
+        {% for i in range(1, total_pairs + 1) %}
+          <option value="{{ i }}" {% if i == 1 %}selected{% endif %}>
+            Case {{ i }} {% if i in completed_indices %}(Completed){% endif %}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="task-info">
+      <p>Below is a <strong>target coding task</strong> from the "<span id="task-name">{{ task_name }}</span>" namespace:</p>
+      <div id="task-desc" class="markdown-body">"{{ task_desc }}"</div>
+      <p><strong>Reference dependencies:</strong></p>
+      <div id="dependency-all" class="knowledge-body">{{ dependency_all }}</div>
+      <p><strong>Reference solution steps:</strong></p>
+      <div id="reference-steps" class="knowledge-body">{{ reference_steps }}</div>
+      <p>You will read two tutoring dialogues produced by two tutor agents interacting with the same <strong id="student-level">{{ student_level }}</strong> student, who <strong id="student-prior">{{ student_prior }}</strong></p>
+      <div id="student-dependency" class="knowledge-body">{{ student_dependency }}</div>
+      <p>Please judge <span class="dialogue-left">tutor agent on the left</span> and <span class="dialogue-right">tutor agent on the right</span> in terms of these metrics:</p>
+      <ul>
+        <li><strong>Proactivity</strong>: How well does the tutor move the student's progress towards solving the task?</li>
+        <li><strong>Adaptability</strong>: How well does the tutor adapt its tutoring strategy based on the student's responses?</li>
+        <li><strong>Coherence</strong>: How well does the tutor build and maintain connections throughout the dialogue?</li>
+      </ul>
+    </div>
+
+    <div class="dialogues">
+      <div class="dialogue-container">
+        <div class="dialogue">
+          {% for line in dialogues[0]["left"] %}
+            <div class="message">
+              <div class="speaker">{{ line.speaker }}</div>
+              <div class="text">{{ line.text | safe }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="dialogue-container">
+        <div class="dialogue">
+          {% for line in dialogues[0]["right"] %}
+            <div class="message">
+              <div class="speaker">{{ line.speaker }}</div>
+              <div class="text">{{ line.text | safe }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="questions">
+      <form id="evaluation-form">
+        <div class="question">
+          <p>Which tutor is better in proactivity?</p>
+          <label><input type="radio" name="proactivity" value="left"> <span class="dialogue-left">Left tutor</span> is better</label>
+          <label><input type="radio" name="proactivity" value="tie"> Tie</label>
+          <label><input type="radio" name="proactivity" value="right"> <span class="dialogue-right">Right tutor</span> is better</label>
+        </div>
+
+        <div class="question">
+          <p>Which tutor is better in adaptability?</p>
+          <label><input type="radio" name="adaptability" value="left"> <span class="dialogue-left">Left tutor</span> is better</label>
+          <label><input type="radio" name="adaptability" value="tie"> Tie</label>
+          <label><input type="radio" name="adaptability" value="right"> <span class="dialogue-right">Right tutor</span> is better</label>
+        </div>
+
+        <div class="question">
+          <p>Which tutor is better in coherence?</p>
+          <label><input type="radio" name="coherence" value="left"> <span class="dialogue-left">Left tutor</span> is better</label>
+          <label><input type="radio" name="coherence" value="tie"> Tie</label>
+          <label><input type="radio" name="coherence" value="right"> <span class="dialogue-right">Right tutor</span> is better</label>
+        </div>
+
+        <div class="justification">
+          <p>Please provide a brief justification for your choice (optional)</p>
+          <input type="text" name="justification" placeholder="Please enter here..." required>
+        </div>
+
+        <button type="button" id="submit-button">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    marked.setOptions({
+      highlight: function(code, lang) {
+        if (lang && hljs.getLanguage(lang)) {
+          return hljs.highlight(code, { language: lang }).value;
+        }
+        return code;
+      },
+      breaks: true
+    });
+
+    document.getElementById('task-desc').innerHTML = marked.parse(`{{ task_desc | safe }}`);
+
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightElement(block);
+    });
+  </script>
+</body>
+</html>
