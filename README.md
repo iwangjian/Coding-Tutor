@@ -19,7 +19,7 @@ This work explores the potential of LLMs as coding tutors. We propose Trace-and-
 </p>
 
 ## Analysis of Simulated Students
-Under a controlled setup, simulated students at different levels demonstrate distinct abilities in completing target coding tasks. Our student simulation serves as a feasible proxy for real students, offering its advantages of scalability and cost-effectiveness for evaluating tutor agents.
+Under a controlled setup, simulated students at different levels demonstrate distinct abilities in completing target coding tasks. Our DICT protocol serves as a feasible proxy for human evaluation, offering its advantages of scalability and cost-effectiveness for evaluating tutor agents.
 
 <p align="center">
   <img src="./assets/simulated_students.png" width="75%" alt="simulated_students">
@@ -27,7 +27,7 @@ Under a controlled setup, simulated students at different levels demonstrate dis
 
 ## Inference-Time Scaling with Verifiers
 
-Traver with the trained verifier shows inference-time scaling for coding tutoring:
+Our proposed Traver agent workflow with the trained verifier shows inference-time scaling for coding tutoring:
 <p align="center">
   <img src="./assets/test_scaling.png" width="75%" alt="scaling">
 </p>
@@ -37,7 +37,7 @@ Traver with the trained verifier shows inference-time scaling for coding tutorin
 Coming soon...
 
 ## Released Data and Results
-
+Please refer to `output/` for the released data and results.
 
 ## 📚 Citation
 
