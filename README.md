@@ -11,7 +11,7 @@
 This work explores the potential of LLMs as coding tutors. We propose Trace-and-Verify (**Traver**), an effective agent workflow that incorporates knowledge tracing and turn-by-turn verification, to tackle key challenges in coding tutoring. While this work focuses on coding tutoring as an example, the proposed method extends beyond coding to other task-tutoring scenarios, where the tutor must adapt content to users' varying levels of background knowledge. We further introduce Dialogue for Coding Tutoring (**DICT**), a novel evaluation protocol combining student simulation and coding tests to assess tutor performance. Such automated evaluation is critical for developing task-tutoring agents as it supports a systematic development and evaluation cycle.
 
 <p align="center">
-  <img src="./assets/overview.png" width="100%" alt="overview">
+  <img src="./assets/overview.png" width="95%" alt="overview">
 </p>
 
 
@@ -25,14 +25,14 @@ This work explores the potential of LLMs as coding tutors. We propose Trace-and-
 Under a controlled setup, simulated students at different levels demonstrate distinct abilities in completing target coding tasks. Our DICT protocol serves as a feasible proxy for human evaluation, offering its advantages of scalability and cost-effectiveness for evaluating tutor agents.
 
 <p align="center">
-  <img src="./assets/simulated_students.png" width="75%" alt="simulated_students">
+  <img src="./assets/simulated_students.png" width="70%" alt="simulated_students">
 </p>
 
 ## Inference-Time Scaling with Verifiers
 
 Our proposed Traver agent workflow with the trained verifier shows inference-time scaling for coding tutoring:
 <p align="center">
-  <img src="./assets/test_scaling.png" width="75%" alt="scaling">
+  <img src="./assets/test_scaling.png" width="70%" alt="scaling">
 </p>
 
 ## ⛏️ Usage
