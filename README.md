@@ -2,7 +2,7 @@
 
 
 <p align="center">
-📃<a href="">arXiv</a> (TBA)
+📃<a href="https://arxiv.org/abs/2502.13311">arXiv</a>
 
 
 This work explores the potential of LLMs as coding tutors. We propose Trace-and-Verify (**Traver**), an effective agent workflow that incorporates knowledge tracing and turn-by-turn verification, to tackle key challenges in coding tutoring. While this work focuses on coding tutoring as an example, the proposed method extends beyond coding to other task-tutoring scenarios, where the tutor must adapt content to users' varying levels of background knowledge. We further introduce Dialogue for Coding Tutoring (**DICT**), a novel evaluation protocol combining student simulation and coding tests to assess tutor performance. Such automated evaluation is critical for developing task-tutoring agents as it supports a systematic development and evaluation cycle.
@@ -32,11 +32,11 @@ Our proposed Traver agent workflow with the trained verifier shows inference-tim
   <img src="./assets/test_scaling.png" width="75%" alt="scaling">
 </p>
 
-## Usage
+## ⛏️ Usage
 
 Coming soon...
 
-## Released Data and Results
+## 📦 Released Data and Results
 Please refer to `output/` for the released data and results.
 
 ## 📚 Citation
