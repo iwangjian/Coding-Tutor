@@ -4,7 +4,7 @@
 <p align="center">
 📃<a href="https://arxiv.org/abs/2502.13311">arXiv</a>
 •
-<a href="" >🤗 Huggingface</a> (TBA)
+🤗<a href="https://huggingface.co/papers/2502.13311"> Huggingface</a>
 </p>
 
 
@@ -18,7 +18,7 @@ This work explores the potential of LLMs as coding tutors. We propose Trace-and-
 ## Coding Tutoring Evaluation
 
 <p align="center">
-  <img src="./assets/eval_results.png" width="95%" alt="eval_results">
+  <img src="./assets/eval_results.png" width="90%" alt="eval_results">
 </p>
 
 ## Analysis of Simulated Students
@@ -35,13 +35,30 @@ Our proposed Traver agent workflow with the trained verifier shows inference-tim
   <img src="./assets/test_scaling.png" width="70%" alt="scaling">
 </p>
 
-## ⛏️ Usage
 
-Coming soon...
+## Todo
 
-## 📦 Released Data and Results
-Please refer to `output/` for the released data and results.
+- [] Add detailed instructions for quick start
+- [] Add shell scripts for training and evaluation
+- [] Release checkpoints for the verifiers
 
-## 📚 Citation
 
-Coming soon...
+## Released Data and Results
+Please refer to `output` for the released data and evaluation results.
+
+
+## Evaluation
+Please refer to `scripts/eval/` for the evaluation scripts.
+
+
+## Citation
+If you find the resources in this repository useful for your work, please kindly cite our work as:
+```bibtex
+@article{wang2025training,
+  title={Training Turn-by-Turn Verifiers for Dialogue Tutoring Agents: The Curious Case of LLMs as Your Coding Tutors},
+  author={Wang, Jian and Dai, Yinpei and Zhang, Yichi and Ma, Ziqiao and Li, Wenjie and Chai, Joyce},
+  journal={arXiv preprint arXiv:2502.13311},
+  url={https://arxiv.org/abs/2502.13311},
+  year={2025}
+}
+```
