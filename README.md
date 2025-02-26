@@ -38,9 +38,9 @@ Our proposed Traver agent workflow with the trained verifier shows inference-tim
 
 ## Todo
 
-- [] Add detailed instructions for quick start
-- [] Add shell scripts for training and evaluation
-- [] Release checkpoints for the verifiers
+- [ ] Add detailed instructions for quick start
+- [ ] Add shell scripts for training and evaluation
+- [ ] Release checkpoints for the verifiers
 
 
 ## Released Data and Results
