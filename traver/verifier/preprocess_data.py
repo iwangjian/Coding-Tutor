@@ -12,7 +12,7 @@ def parse_args():
     parser.add_argument("--chosen_models", type=str, default="all")
     parser.add_argument("--simulation_dir", type=str, default="output/dialogue/vanilla")
     parser.add_argument("--posttest_dir", type=str, default="output/student_posttest/vanilla")
-    parser.add_argument("--output_dir", type=str, default="output/verifier_data_test")
+    parser.add_argument("--output_dir", type=str, default="")
     
     return parser.parse_args()
 
