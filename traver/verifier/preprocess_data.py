@@ -8,11 +8,11 @@ random.seed(42)
 
 def parse_args():
     parser = ArgumentParser()
-    parser.add_argument("--prompt_element_file", type=str, default='prompt/prompt_elements_final.jsonl')
+    parser.add_argument("--prompt_element_file", type=str, default="prompt/prompt_elements_final.jsonl")
     parser.add_argument("--chosen_models", type=str, default="all")
-    parser.add_argument("--simulation_dir", type=str, default="")
-    parser.add_argument("--posttest_dir", type=str, default="")
-    parser.add_argument("--output_dir", type=str, default="")
+    parser.add_argument("--simulation_dir", type=str, default="output/dialogue/vanilla")
+    parser.add_argument("--posttest_dir", type=str, default="output/student_posttest/vanilla")
+    parser.add_argument("--output_dir", type=str, default="output/verifier_data_test")
     
     return parser.parse_args()
 
@@ -28,11 +28,20 @@ def collect_dialog_data(dialogue_fp, posttest_fp):
                 outcome_label[js["namespace"]] = 1
     # annotate outcome reward for each namespace
     dialogues = []
-    with open(dialogue_fp, 'r', encoding='utf-8') as f:
-        for line in f:
-            conv = json.loads(line)
-            conv["outcome_label"] = outcome_label[conv["namespace"]]
-            dialogues.append(conv)
+    if dialogue_fp.endswith('.jsonl'):
+        with open(dialogue_fp, 'r', encoding='utf-8') as f:
+            for line in f:
+                conv = json.loads(line)
+                conv["outcome_label"] = outcome_label[conv["namespace"]]
+                dialogues.append(conv)
+    elif dialogue_fp.endswith('.json'):
+        with open(dialogue_fp, 'r', encoding='utf-8') as f:
+            conv_list = json.load(f)
+            for conv in conv_list:
+                conv["outcome_label"] = outcome_label[conv["namespace"]]
+                dialogues.append(conv)
+    else:
+        raise ValueError("Unsupported file format for dialogue_fp. Only .jsonl and .json are supported.")
 
     return dialogues
 
@@ -53,12 +62,12 @@ def main(args):
     for model in chosen_models:
         model_dir = os.path.join(args.simulation_dir, model)
         for level in os.listdir(model_dir):
-            print(f"Processing {model} - {level}")
+            print(f"Processing vanilla {model} - {level} student dialogue data")
             posttest_dir = os.path.join(args.posttest_dir, model, level)
             # check and adjust posttest data
             max_round = check_adjust_posttest(posttest_dir)
 
-            dialogues = collect_dialog_data(os.path.join(model_dir, level, "simulated_dialogs.jsonl"),
+            dialogues = collect_dialog_data(os.path.join(model_dir, level, "simulated_dialogs.json"),
                                             os.path.join(posttest_dir, f"round_{max_round}/test_results.jsonl"))
             for dialog in dialogues:
                 data_samples = build_model_data(prompt_elements, dialog, level, template)
@@ -108,7 +117,7 @@ def main(args):
         for label in data_parts_label[i]:
             if label > 0:
                 positive_count += 1
-        print(f"Part {i} positive ratio = {positive_count / len(data_parts_label[i])}")
+        #print(f"Part {i} positive ratio = {positive_count / len(data_parts_label[i])}")
     
     for i in range(num_parts):
         with open(os.path.join(args.output_dir, f"verifier_data_part{i}.jsonl"), 'w') as f:
