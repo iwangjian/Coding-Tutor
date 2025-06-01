@@ -7,6 +7,8 @@ import argparse
 import tiktoken
 from tqdm import tqdm
 from chatarena.agent import Player, Moderator
+from chatarena.agent_selfrefine import SelfRefineTutor
+from chatarena.agent_treeinstruct import TreeInstructTutor
 from chatarena.backends import GPTChat, O1Chat, VLLMChat
 from chatarena.environments.conversation import ModeratedConversation
 from chatarena.arena import Arena
@@ -88,6 +90,17 @@ def interactive_simulation(args, prompt_data, tutor_backend, student_backend, mo
             if args.tutor_setting == "vanilla":
                 tutor = Player(
                     name="tutor", role_desc=js["tutor_desc"], 
+                    backend=tutor_backend,
+                )
+            elif args.tutor_setting == "self_refine":
+                tutor = SelfRefineTutor(
+                    name="tutor", role_desc=js["tutor_desc"], 
+                    backend=tutor_backend,
+                    num_iter=1
+                )
+            elif args.tutor_setting == "tree_instruct":
+                tutor = TreeInstructTutor(
+                    name="tutor", role_desc=js["tutor_desc"],
                     backend=tutor_backend,
                 )
             else:
