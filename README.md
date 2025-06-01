@@ -18,7 +18,7 @@ This work explores the potential of LLMs as task-tutoring agents. We take coding
 ## News
 - [2025.06.02] 🔥 Update detailed instructions for quickstart.
 - [2025.05.16] 🔥 Our work is accepted to the [ACL Findings 2025](https://2025.aclweb.org/).
-- [2025.02.18] 🚀 Release the Coding-Tutor on [arXiv](https://arxiv.org/abs/2502.13311).
+- [2025.02.18] 🚀 Release this work on [arXiv](https://arxiv.org/abs/2502.13311).
 
 
 ## Environment Setup
@@ -34,7 +34,7 @@ This work explores the potential of LLMs as task-tutoring agents. We take coding
 
 
 ## Usage
-Note: Please set your own Azure API key, data path, and model path based on the scripts in `scripts/run/`.
+Note: Please set your own Azure API key, data path, and model path based on `scripts/run/`.
 
 ### Running Baselines
 ```bash
