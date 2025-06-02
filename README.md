@@ -41,7 +41,7 @@ Note: Please set your own Azure API key, data path, and model path based on `scr
 # Start the student engine
 bash scripts/run/run_engine_student.sh
 
-# (Optional) Start the tutor engine for open-source backbone models
+# (Optional) Start the tutor engine for open-weight backbone models
 bash scripts/run/run_engine_tutor.sh
 
 # Simulate tutoring dialogues
@@ -53,7 +53,7 @@ bash scripts/run/run_base.sh
 # Start the student engine
 bash scripts/run/run_engine_student.sh
 
-# (Optional) Start the tutor engine for open-source backbone models
+# (Optional) Start the tutor engine for open-weight backbone models
 bash scripts/run/run_engine_tutor.sh
 
 # Prepare the verifier data
@@ -95,32 +95,32 @@ Please refer to the `human_eval` folder.
 
 
 ## Released Models and Results
-For the trained verifier models, please download from 🤗 Hugging Face [jwanglvy/Verifier-7B](https://huggingface.co/jwanglvy/Verifier-7B).
+1. For the trained verifier models, please download checkpoints from 🤗 Hugging Face [jwanglvy/Verifier-7B](https://huggingface.co/jwanglvy/Verifier-7B).
 
-For the simulated dialogues, please refer to the `output/dialogue.zip`. Below is the data format:
-```
-[
-    {
-        "namespace": "easyvolcap.utils.gl_utils.Quad.upload_to_texture",
-        "conversation": [
-            {
-                "tutor": "Hello! How familiar are you with OpenGL texture updates and the use of PyTorch tensors in Python?"
-            },
-            {
-                "student": "Hello! I'm familiar with OpenGL texture updates and the use of PyTorch tensors in Python, but I'm still learning. I appreciate ..."
-            },
-            {
-                "tutor": "Great start! In the function, when `w` and `h` are not provided or are zero, we should set them to the object's width and height (`self.W` and `self.H`). Also, ... How would you implement these steps in the function?"
-            },
-            ...
-        ]
-    }
-    ...
-]
-```
+2. For the simulated dialogues, please refer to the `output/dialogue.zip`. Below is the data format:
+    ```
+    [
+        {
+            "namespace": "easyvolcap.utils.gl_utils.Quad.upload_to_texture",
+            "conversation": [
+                {
+                    "tutor": "Hello! How familiar are you with OpenGL texture updates and the use of PyTorch tensors in Python?"
+                },
+                {
+                    "student": "Hello! I'm familiar with OpenGL texture updates and the use of PyTorch tensors in Python, but I'm still learning. I appreciate ..."
+                },
+                {
+                    "tutor": "Great start! In the function, when `w` and `h` are not provided or are zero, we should set them to the object's width and height (`self.W` and `self.H`). Also, ... How would you implement these steps in the function?"
+                },
+                ...
+            ]
+        }
+        ...
+    ]
+    ```
 
 
-For the evaluation results, please refer to the `output/student_pretest.zip` and `output/student_posttest.zip`.
+3. For the evaluation results, please refer to the `output/student_pretest.zip` and `output/student_posttest.zip`.
 
 
 ## Tutoring Performance Comparison
