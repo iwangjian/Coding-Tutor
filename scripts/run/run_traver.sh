@@ -39,7 +39,7 @@ student_levels=(low_level med_level high_level)
 
 for level in ${student_levels[@]}; do
     echo "Running interactive simulation between tutor and $level student ..."
-    python src/run_traver.py --tutor_setting $tutor_setting \
+    python traver/run_traver.py --tutor_setting $tutor_setting \
         --namespace_file $namespace_file \
         --prompt_element_file $prompt_element_file \
         --output_dir $output_dir \
