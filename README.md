@@ -57,7 +57,7 @@ bash scripts/run/run_engine_student.sh
 bash scripts/run/run_engine_tutor.sh
 
 # Prepare the verifier data
-bash scripts/run/prepare_verifier_darta.sh
+bash scripts/run/prepare_verifier_data.sh
 
 # Train the verifier
 bash scripts/run/run_verifier.sh
@@ -87,15 +87,40 @@ python scripts/eval/eval_pretest.py
 python scripts/eval/eval_TOR.py --pretest_dir ${pretest_dir} --posttest_dir ${posttest_dir}
 
 # Draw tutoring outcome curves
-python scripts/eval/eval_TOR.py --tutor_settings ${tutor_settings} --tutor_models ${tutor_models}
+python scripts/eval/eval_TOC.py --tutor_settings ${tutor_settings} --tutor_models ${tutor_models}
 ```
 
 ### Human Evaluation
 Please refer to the `human_eval` folder.
 
 
-## Released Data and Results
-Please refer to the `output` folder for the simulated dialogues and evaluation results.
+## Released Models and Results
+For the trained verifier models, please download from 🤗 Hugging Face [jwanglvy/Verifier-7B](https://huggingface.co/jwanglvy/Verifier-7B).
+
+For the simulated dialogues, please refer to the `output/dialogue.zip`. Below is the data format:
+```
+[
+    {
+        "namespace": "easyvolcap.utils.gl_utils.Quad.upload_to_texture",
+        "conversation": [
+            {
+                "tutor": "Hello! How familiar are you with OpenGL texture updates and the use of PyTorch tensors in Python?"
+            },
+            {
+                "student": "Hello! I'm familiar with OpenGL texture updates and the use of PyTorch tensors in Python, but I'm still learning. I appreciate ..."
+            },
+            {
+                "tutor": "Great start! In the function, when `w` and `h` are not provided or are zero, we should set them to the object's width and height (`self.W` and `self.H`). Also, ... How would you implement these steps in the function?"
+            },
+            ...
+        ]
+    }
+    ...
+]
+```
+
+
+For the evaluation results, please refer to the `output/student_pretest.zip` and `output/student_posttest.zip`.
 
 
 ## Tutoring Performance Comparison
